@@ -9,6 +9,11 @@ class TestCardGame(unittest.TestCase):
         self.card2 = Card("Clubs", 1)
         self.cards = [self.card1, self.card2]
         self.card_game = CardGame()
+        self.card3 = Card("Spades", 8)
+
+    def test_highest_card(self):
+        result = self.card_game.highest_card(self.card1, self.card3)
+        self.assertEqual(None, result)
 
     
     def test_check_for_ace_false(self):
@@ -23,6 +28,10 @@ class TestCardGame(unittest.TestCase):
     def test_highest_card(self):
         result = self.card_game.highest_card(self.card1, self.card2)
         self.assertEqual(self.card1, result)
+
+    def test_highest_card_equalvalues(self):
+        result = self.card_game.highest_card(self.card1, self.card3)
+        self.assertEqual(None, result)
 
     
     def test_cards_total(self):
